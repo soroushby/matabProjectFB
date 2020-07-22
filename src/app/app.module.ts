@@ -1,3 +1,4 @@
+import { FirebaseUIModule } from 'firebaseui-angular';
 import { MaterialModule } from './modules/material/material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -16,9 +17,41 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ContactUsComponent } from './about/contact-us/contact-us.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular';
+import { LoginComponent } from './auth/login/login.component';
+import * as firebase from 'firebase';
+import * as firebaseui from 'firebaseui';
 
+const firebaseUiAuthConfig: firebaseui.auth.Config = {
+  signInFlow: 'popup',
+  signInOptions: [
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    {
+      scopes: ['public_profile', 'email', 'user_likes', 'user_friends'],
+      customParameters: {
+        auth_type: 'reauthenticate',
+      },
+      provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+    },
+    firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+    firebase.auth.GithubAuthProvider.PROVIDER_ID,
+    {
+      requireDisplayName: false,
+      provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+    },
+    firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+    firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID,
+  ],
+  tosUrl: '<your-tos-link>',
+  privacyPolicyUrl: '<your-privacyPolicyUrl-link>',
+  credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
+};
 @NgModule({
-  declarations: [AppComponent, PageNotFoundComponent, ContactUsComponent],
+  declarations: [
+    AppComponent,
+    PageNotFoundComponent,
+    ContactUsComponent,
+    LoginComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,6 +64,7 @@ import { AgGridModule } from 'ag-grid-angular';
     FlexLayoutModule,
     ReactiveFormsModule,
     AgGridModule.withComponents([]),
+    FirebaseUIModule.forRoot(firebaseUiAuthConfig),
   ],
   providers: [],
   bootstrap: [AppComponent],

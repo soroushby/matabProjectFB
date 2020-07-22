@@ -146,10 +146,14 @@
           >
         </li>
         <li>
-          <a>Log In</a>
+          <a role="listitem" routerLink="login" routerLinkActive="active"
+            >Log In</a
+          >
         </li>
         <li>
-          <a>Log Out</a>
+          <a role="listitem" (click)="logout()" routerLinkActive="active"
+            >Log Out</a
+          >
         </li>
       </ul>
     </mat-toolbar>

@@ -1,4 +1,55 @@
-<div *ngFor="let patient of patients">
+<!-- <div *ngFor="let patient of patient$">
   <div>{{ patient.name }}</div>
   <div>{{ patient.id }}</div>
+</div> -->
+<ag-grid-angular
+  class="ag-theme-alpine-dark myGrid"
+  [rowData]="patient$ | async"
+  [columnDefs]="columnDefs"
+  (gridReady)="onGridReady($event)"
+  rowSelection="multiple"
+>
+</ag-grid-angular>
+<div class="actions" fxLayout="row">
+  <button mat-raised-button color="primary" (click)="selectAll()">
+    select All
+  </button>
+
+  <button mat-raised-button color="primary" (click)="deSelectAll()">
+    Deselect all
+  </button>
+
+  <button mat-raised-button color="warn">
+    Delete
+  </button>
 </div>
+<!-- <div *ngIf="patient$ | async as patients">
+  <div *ngFor="let patient of patients" fxLayout.lt-sm="column">
+    <mat-accordion multi="true">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          {{ patient.name }}
+        </mat-expansion-panel-header>
+        <p>{{ patient.age }}</p>
+        <p>{{ patient.number }}</p>
+        <p>{{ patient.parity }}</p>
+        <p>{{ patient.id }}</p>
+
+        <mat-action-row>
+          <button mat-button color="primary">EDIT</button>
+          <button
+            mat-button
+            color="warn"
+            routerLink="/addPateints"
+            (click)="onDeletePatients(patient.id)"
+          >
+            DELETE
+          </button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <p class="info-text mat-body-1">
+      No posts added yet!
+    </p>
+  </div>
+</div> -->
