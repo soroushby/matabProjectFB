@@ -1,1 +1,37 @@
-<p>about-me works!</p>
+<div class="main">
+  <div
+    fxLayout.lt-md="column"
+    class="cards-container"
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    fxLayoutGap="15rem"
+    fxLayout.lt-md="column"
+  >
+    <mat-card class="card1" fxLayoutAlign="center center" fxLayout="column">
+      <mat-card-content
+        fxLayoutAlign="center center"
+        fxLayout="column"
+        fxLayoutGap="2rem"
+      >
+        <div class="name">Dr. Mozhgan Daneshvar</div>
+        <div class="image"></div>
+
+        <p class="name">
+          Gynecologist And Obstetrician
+        </p>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="card2" ngClass.lt-md="res">
+      <div>
+        <mat-accordion multi="true" *ngFor="let information of informations">
+          <mat-expansion-panel class="header">
+            <mat-expansion-panel-header>
+              {{ information.name }}</mat-expansion-panel-header
+            >
+            <ng-container class="value">{{ information.value }}</ng-container>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </mat-card>
+  </div>
+</div>

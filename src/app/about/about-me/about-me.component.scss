@@ -1,0 +1,44 @@
+.main {
+  min-height: 100vh;
+
+  background-image: url(../../../assets/images/19366.jpg);
+
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cards-container {
+  min-height: 100vh;
+}
+.card1 {
+  width: 40rem;
+  background-color: rgba(142, 178, 224, 0.507);
+  box-shadow: 0 10px 10px -5px;
+}
+
+.card2 {
+  width: 79rem;
+  box-shadow: 0 10px 10px -5px;
+  background-color: rgba(142, 178, 224, 0.507);
+}
+
+.image {
+  background-image: url(../../../assets/operation.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 40rem;
+  width: 32rem;
+}
+
+.header {
+  margin-top: 1rem;
+}
+
+.res {
+  width: 100%;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: 400;
+}

@@ -13,9 +13,10 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ContactUsComponent } from './about/contact-us/contact-us.component';
 
 @NgModule({
-  declarations: [AppComponent, PageNotFoundComponent],
+  declarations: [AppComponent, PageNotFoundComponent, ContactUsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
