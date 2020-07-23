@@ -20,6 +20,7 @@
         class="matlist"
         role="listitem"
         routerLink="patients/addPatients"
+        *ngIf="auth.loggedIn"
         (click)="sidenav.close()"
         >Add Patients</mat-list-item
       >
@@ -28,12 +29,19 @@
         role="listitem"
         (click)="sidenav.close()"
         routerLink="patients/loadPatients"
+        *ngIf="auth.loggedIn"
         >Load Patients</mat-list-item
       >
-      <mat-list-item class="matlist" (click)="sidenav.close()"
+      <mat-list-item
+        *ngIf="!auth.loggedIn"
+        class="matlist"
+        (click)="sidenav.close()"
         >Log In</mat-list-item
       >
-      <mat-list-item class="matlist" (click)="sidenav.close()"
+      <mat-list-item
+        class="matlist"
+        *ngIf="auth.loggedIn"
+        (click)="sidenav.close()"
         >Log Out</mat-list-item
       >
     </mat-nav-list>
@@ -129,7 +137,7 @@
             >About Me</a
           >
         </li>
-        <li>
+        <li *ngIf="auth.loggedIn">
           <a
             role="listitem"
             routerLink="patients/addPatients"
@@ -137,7 +145,7 @@
             >Add Patients</a
           >
         </li>
-        <li>
+        <li *ngIf="auth.loggedIn">
           <a
             role="listitem"
             routerLink="patients/loadPatients"
@@ -145,13 +153,13 @@
             >Load Patients</a
           >
         </li>
-        <li>
-          <a role="listitem" routerLink="login" routerLinkActive="active"
+        <li *ngIf="!auth.loggedIn">
+          <a role="listitem" (click)="auth.login()" routerLinkActive="active"
             >Log In</a
           >
         </li>
-        <li>
-          <a role="listitem" (click)="logout()" routerLinkActive="active"
+        <li *ngIf="auth.loggedIn">
+          <a role="listitem" outerLinkActive="active" (click)="auth.logout()"
             >Log Out</a
           >
         </li>

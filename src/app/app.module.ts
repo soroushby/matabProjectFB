@@ -16,15 +16,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ContactUsComponent } from './about/contact-us/contact-us.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular';
-import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PageNotFoundComponent,
-    ContactUsComponent,
-    LoginComponent,
-  ],
+  declarations: [AppComponent, PageNotFoundComponent, ContactUsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
