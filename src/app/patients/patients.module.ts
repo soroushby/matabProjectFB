@@ -12,6 +12,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { AgGridModule } from 'ag-grid-angular';
     AngularFireStorageModule,
     AngularFireAuthModule,
     ReactiveFormsModule,
+
     AgGridModule.withComponents([]),
   ],
 })

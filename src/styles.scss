@@ -1,6 +1,7 @@
 @import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
 @import "../node_modules/ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
 @import "~firebaseui/dist/firebaseui.css";
+@import "~firebaseui/dist/firebaseui.css";
 .ag-theme-alpine {
   @include ag-theme-alpine(
     (
