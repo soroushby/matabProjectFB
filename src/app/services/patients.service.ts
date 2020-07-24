@@ -14,14 +14,15 @@ export class PatientsService {
       .collection('patients')
       .snapshotChanges()
       .pipe(
-        map((data) => {
-          return data.map((data) => {
-            return <Patient>{
-              id: data.payload.doc.id,
-              ...(data.payload.doc.data() as Patient),
-            };
-          });
-        })
+        map((data) =>
+          data.map(
+            (data) =>
+              <Patient>{
+                id: data.payload.doc.id,
+                ...(data.payload.doc.data() as Patient),
+              }
+          )
+        )
       );
   }
 
